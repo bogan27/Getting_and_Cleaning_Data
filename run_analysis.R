@@ -40,3 +40,36 @@ combined_training_data<-cbind(x_train,subject_train,y_train)
 ##merge the two datasets
 merged_data<-rbind(combined_test_data,combined_training_data)
 
+#Great! We have successfully merged the data set!
+
+#Now, let's go through the last column and replace the 
+#numbers with their corresponding activity name
+merged_data$Activty[merged_data$Activity==1]<-"Walking"
+merged_data$Activty[merged_data$Activity==2]<-"Walking_Upstairs"
+merged_data$Activty[merged_data$Activity==3]<-"Walking_Downstairs"
+merged_data$Activty[merged_data$Activity==4]<-"Sitting"
+merged_data$Activty[merged_data$Activity==5]<-"Standing"
+merged_data$Activty[merged_data$Activity==6]<-"Laying"
+
+#Extracts only the measurements on the mean and standard 
+#deviation for each measurement. 
+merged_copy<-merged_data
+merged_copy<-merged_copy[,-(7:40)]
+merged_copy<-merged_copy[,-(47:80)]
+merged_copy<-merged_copy[,-(87:120)]
+merged_copy<-merged_copy[,-(127:160)]
+merged_copy<-merged_copy[,-(167:200)]
+merged_copy<-merged_copy[,-(203:213)]
+merged_copy<-merged_copy[,-(216:226)]
+merged_copy<-merged_copy[,-(229:239)]
+merged_copy<-merged_copy[,-(242:252)]
+merged_copy<-merged_copy[,-(255:265)]
+merged_copy<-merged_copy[,-(272:344)]
+merged_copy<-merged_copy[,-(351:423)]
+merged_copy<-merged_copy[,-(430:502)]
+merged_copy<-merged_copy[,-(505:515)]
+merged_copy<-merged_copy[,-(518:528)]
+merged_copy<-merged_copy[,-(505:515)]
+merged_copy<-merged_copy[,-(531:541)]
+merged_copy<-merged_copy[,-(544:554)]
+means_and_stds<-merged_copy
